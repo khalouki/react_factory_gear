@@ -6,10 +6,12 @@
   "homepage": "https://khalouki.github.io/react_factory_gear",
   "scripts": {
     "dev": "vite",
-    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist", 
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+    
   },
   "dependencies": {
     "animate.css": "^4.1.1",
