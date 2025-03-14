@@ -1,12 +1,13 @@
+import logo from '../images/logo_site.png'
 export default function Notfound() {
     return (
         <>
-            <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+            <header className="sticky top-0 z-50 w-full border-b bg-[#c0c0c09c] backdrop-blur ">
                 <div className="container mx-auto px-4 flex h-16 items-center justify-center">
                     {/* Logo */}
                     <div className="flex justify-center items-center">
                         <a href="/" aria-label="Retour à l'accueil">
-                            <img src="/images/logo.png" alt="Logo" className="h-[4.5rem]" />
+                            <img src={logo} alt="Logo" className="h-[4.5rem]" />
                         </a>
                     </div>
                 </div>
