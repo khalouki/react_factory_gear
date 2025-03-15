@@ -8,7 +8,7 @@ import Notfound from './page/Notfound';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react_factory_gear">
       {/* Afficher Header uniquement sur la page Notfound */}
       <Routes>
         <Route path="/" element={<Home />} />
