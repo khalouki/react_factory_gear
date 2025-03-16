@@ -32,9 +32,9 @@ const HeaderHome = () => {
             <div className="container mx-auto px-4 flex h-16 items-center justify-between">
                 {/* Logo */}
                 <div className="flex items-center">
-                    <a href="/">
+                    <Link to="/">
                         <img src={logo} alt="Logo" className="h-[4.5rem]" />
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Navigation pour les écrans larges */}
