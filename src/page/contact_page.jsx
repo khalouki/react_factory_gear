@@ -18,9 +18,9 @@ const Contact_Page = () => {
                 <div className="container mx-auto px-4 flex h-16 items-center justify-center">
                     {/* Logo */}
                     <div className="flex justify-center items-center">
-                        <a href="/" aria-label="Retour à l'accueil">
+                         <Link to="/">
                             <img src={logo} alt="Logo" className="h-[4.5rem]" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </header>
