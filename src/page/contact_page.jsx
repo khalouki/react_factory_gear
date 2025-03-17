@@ -38,7 +38,7 @@ const Contact_Page = () => {
             <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
                 <div className="container mx-auto px-4 flex h-16 items-center justify-center">
                     <div className="flex justify-center items-center">
-                        <a href="/" aria-label="Retour à l'accueil">
+                        <Link to="/">
                             <img src={logo} alt="Logo" className="h-[4.5rem]" />
                         </Link>
                     </div>
