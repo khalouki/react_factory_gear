@@ -5,7 +5,6 @@ import Contact_Page from './page/contact_page';
 import Home from './page/home';
 import Notfound from './page/Notfound';
 
-
 function App() {
   return (
     <BrowserRouter basename="/react_factory_gear">

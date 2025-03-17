@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'; // Ajout de useState manquant
+import { Link } from 'react-router-dom';
 import { MapPinned, Phone, Mail, Clock } from 'lucide-react'; // Import des icônes Lucide
 import 'animate.css'; // Import de animate.css
-import logo from '../images/logo_site.png'
-import background_img from '../images/technologie/contact2.webp'
+import logo from '../images/logo_site.png';
+import image1 from '../images/image1.jpeg';
+import image2 from '../images/image2.jpg';
+import image3 from '../images/image3.jpg';
+import image4 from '../images/image4.jpg';
+
 const Contact_Page = () => {
-    // Fonction pour gérer la soumission du formulaire
+    const backgroundImages = [image1, image2, image3, image4];
+    const [currentBgIndex, setCurrentBgIndex] = useState(0);
+
+    // Gestion du changement d'image de fond
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentBgIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
+        }, 7000);
+
+        return () => clearInterval(interval); // Nettoyage de l'intervalle
+    }, [backgroundImages.length]);
+
+    // Scroll vers le haut de la page au chargement
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    // Gestion de la soumission du formulaire
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Ajoutez ici la logique pour traiter le formulaire
-        console.log('Formulaire soumis');
+        console.log('Formulaire soumis'); // Logique à implémenter
     };
 
     return (
@@ -16,37 +37,35 @@ const Contact_Page = () => {
             {/* En-tête */}
             <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
                 <div className="container mx-auto px-4 flex h-16 items-center justify-center">
-                    {/* Logo */}
                     <div className="flex justify-center items-center">
-                        <a href="/" aria-label="Retour à l'accueil">
+                        <Link to="/">
                             <img src={logo} alt="Logo" className="h-[4.5rem]" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </header>
 
             {/* Section Hero */}
-            <div
-                className="relative text-white py-32 pt-40"
-                style={{
-                    backgroundImage: `url(${background_img})`,
-                    backgroundSize: 'cover',
-                }}
-            >
-                {/* Overlay flou */}
-                <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
-
-                {/* Contenu */}
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 animate__animated animate__fadeIn">
+            <section id="hed" className="relative h-[80vh] flex items-center justify-center bg-[#000000c7] text-white overflow-hidden">
+                <div id="hero-carousel" className="absolute inset-0">
+                    {backgroundImages.map((img, index) => (
+                        <img
+                            key={index}
+                            src={img}
+                            alt={`Industrial automation background ${index + 1}`}
+                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentBgIndex ? 'opacity-20' : 'opacity-0'}`}
+                        />
+                    ))}
+                </div>
+                <div className="container mx-auto px-4 relative z-10 text-center space-y-6">
+                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                         Contactez-nous
                     </h1>
-                    <p className="text-lg max-w-3xl mx-auto animate__animated animate__fadeInUp">
-                        Vous avez des questions sur nos produits ou services ? Contactez notre équipe et nous vous
-                        répondrons dès que possible.
+                    <p className="text-xl max-w-3xl mx-auto">
+                        Nous sommes à votre écoute pour répondre à vos questions et vous accompagner dans vos projets.
                     </p>
                 </div>
-            </div>
+            </section>
 
             {/* Section Contact */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
